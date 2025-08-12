@@ -277,6 +277,7 @@ if analyze_button:
             st.write("**Mevcut durumunuzu iyileştirmek için önerilen değişiklikler:**")
             
             improvements = {}
+            current_area_per_person = detailed['area_per_person']['value']
             
             if detailed['temperature']['status'] != 'Optimal':
                 if temperature < 18:
@@ -304,7 +305,7 @@ if analyze_button:
                 elif param == 'co2':
                     st.write(f"🌿 CO2: {co2} ppm → {co2 + improvement} ppm")
                 elif param == 'area_per_person':
-                    st.write(f"🏠 Alan/Kişi: {detailed['area_per_person']['value']:.1f} m² → {detailed['area_per_person']['value'] + improvement:.1f} m²")
+                    st.write(f"🏠 Alan/Kişi: {current_area_per_person:.1f} m² → {current_area_per_person + improvement:.1f} m²")
         
         with col2:
             if improvements:

@@ -258,7 +258,19 @@ class AirQualityAI:
         # İyileştirilmiş girdileri oluştur
         improved_inputs = current_inputs.copy()
         for param, improvement in improvements.items():
-            if param in improved_inputs:
+            # area_per_person için özel hesaplama
+            if param == 'area_per_person':
+                # Alan/Kişi iyileştirmesi için alanı artır veya kişi sayısını azalt
+                current_area_per_person = self.data_processor.calculate_area_per_person(
+                    improved_inputs['area'], improved_inputs['occupancy']
+                )
+                target_area_per_person = current_area_per_person + improvement
+                
+                # Kişi sayısını azaltarak hedefe ulaş
+                if improved_inputs['occupancy'] > 1:
+                    new_occupancy = max(1, improved_inputs['area'] / target_area_per_person)
+                    improved_inputs['occupancy'] = int(new_occupancy)
+            elif param in improved_inputs:
                 improved_inputs[param] += improvement
         
         # İyileştirilmiş skoru hesapla
