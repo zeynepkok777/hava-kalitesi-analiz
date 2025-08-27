@@ -20,10 +20,11 @@ class AirQualityAI:
                     'condition': 'low',
                     'threshold': 18,
                     'recommendations': [
-                        "Ortam sıcaklığını 20-22°C arasına çıkarın",
-                        "Isıtma sistemini kontrol edin",
+                        "Fabrika ısıtma sistemini kontrol edin ve ayarlayın",
+                        "Üretim alanlarındaki sıcaklık sensörlerini kalibre edin",
                         "Pencere ve kapı yalıtımını iyileştirin",
-                        "Sıcaklık sensörünü kalibre edin"
+                        "Çalışma alanlarında ek ısıtıcılar yerleştirin",
+                        "Sıcaklık dağılımını optimize etmek için fan sistemlerini ayarlayın"
                     ],
                     'priority': 'high'
                 },
@@ -31,10 +32,11 @@ class AirQualityAI:
                     'condition': 'high',
                     'threshold': 26,
                     'recommendations': [
-                        "Ortam sıcaklığını 22-24°C arasına düşürün",
-                        "Klima sistemini çalıştırın",
-                        "Havalandırmayı artırın",
-                        "Güneş ışığını azaltın (perde kullanın)"
+                        "Fabrika klima sistemini çalıştırın ve ayarlayın",
+                        "Endüstriyel fan sistemlerini maksimuma çıkarın",
+                        "Üretim makinelerinin ısı çıkışını azaltın",
+                        "Çalışma saatlerini sıcaklığa göre ayarlayın",
+                        "Soğutma sistemlerinin bakımını yapın"
                     ],
                     'priority': 'high'
                 }
@@ -44,10 +46,11 @@ class AirQualityAI:
                     'condition': 'low',
                     'threshold': 30,
                     'recommendations': [
-                        "Nem oranını %40-50 arasına çıkarın",
-                        "Nemlendirici cihaz kullanın",
-                        "Su kapları yerleştirin",
-                        "Bitki sayısını artırın"
+                        "Fabrika nemlendirme sistemini çalıştırın",
+                        "Üretim alanlarında endüstriyel nemlendiriciler yerleştirin",
+                        "Su püskürtme sistemlerini aktif edin",
+                        "Nem sensörlerini kalibre edin",
+                        "Havalandırma sistemlerini nem kontrolü için ayarlayın"
                     ],
                     'priority': 'medium'
                 },
@@ -55,10 +58,11 @@ class AirQualityAI:
                     'condition': 'high',
                     'threshold': 60,
                     'recommendations': [
-                        "Nem oranını %45-55 arasına düşürün",
-                        "Nem alma cihazı kullanın",
-                        "Havalandırmayı artırın",
-                        "Su sızıntılarını kontrol edin"
+                        "Fabrika nem alma sistemlerini çalıştırın",
+                        "Endüstriyel nem alma cihazları yerleştirin",
+                        "Havalandırmayı artırın ve nem kontrolü yapın",
+                        "Su sızıntılarını ve yoğuşma noktalarını kontrol edin",
+                        "Üretim süreçlerindeki nem kaynaklarını azaltın"
                     ],
                     'priority': 'medium'
                 }
@@ -68,11 +72,12 @@ class AirQualityAI:
                     'condition': 'high',
                     'threshold': 1000,
                     'recommendations': [
-                        "CO2 seviyesini 600-800 ppm arasına düşürün",
-                        "Havalandırmayı artırın",
-                        "Kişi sayısını azaltın",
-                        "CO2 sensörü takın",
-                        "Bitki sayısını artırın"
+                        "Fabrika havalandırma sistemlerini maksimuma çıkarın",
+                        "CO2 sensörlerini tüm üretim alanlarına yerleştirin",
+                        "Çalışan sayısını azaltın veya vardiya sistemini uygulayın",
+                        "Endüstriyel hava temizleme sistemleri kurun",
+                        "Üretim süreçlerindeki CO2 emisyonlarını azaltın",
+                        "Acil havalandırma sistemlerini aktif edin"
                     ],
                     'priority': 'critical'
                 },
@@ -80,10 +85,12 @@ class AirQualityAI:
                     'condition': 'very_high',
                     'threshold': 1500,
                     'recommendations': [
-                        "ACİL: Ortamı hemen havalandırın",
-                        "Kişileri başka odaya yönlendirin",
-                        "CO2 seviyesini sürekli izleyin",
-                        "Havalandırma sistemini maksimuma çıkarın"
+                        "ACİL: Tüm üretimi durdurun ve ortamı tahliye edin",
+                        "Acil havalandırma sistemlerini maksimuma çıkarın",
+                        "CO2 seviyesini sürekli izleyin ve alarm sistemini aktif edin",
+                        "Çalışanları güvenli alanlara yönlendirin",
+                        "Uzman ekipleri çağırın ve güvenlik protokollerini uygulayın",
+                        "Üretim süreçlerindeki CO2 kaynaklarını tespit edin"
                     ],
                     'priority': 'emergency'
                 }
@@ -93,10 +100,11 @@ class AirQualityAI:
                     'condition': 'low',
                     'threshold': 15,
                     'recommendations': [
-                        "Kişi başına alanı artırın (en az 20m²)",
-                        "Kişi sayısını azaltın",
-                        "Daha büyük alan kullanın",
-                        "Çalışma saatlerini ayırın"
+                        "Üretim alanlarını genişletin veya çalışan sayısını azaltın",
+                        "Vardiya sistemini uygulayarak yoğunluğu azaltın",
+                        "Çalışma alanlarını yeniden düzenleyin",
+                        "Uzaktan çalışma seçeneklerini değerlendirin",
+                        "Üretim kapasitesini optimize edin"
                     ],
                     'priority': 'high'
                 }
@@ -150,38 +158,53 @@ class AirQualityAI:
             recommendations.append({
                 'type': 'general',
                 'priority': 'critical',
-                'title': 'Genel Hava Kalitesi İyileştirme',
-                'description': 'Hava kalitesi kritik seviyede. Acil önlem alınması gerekiyor.',
+                'title': 'Fabrika Hava Kalitesi Acil İyileştirme',
+                'description': 'Fabrika hava kalitesi kritik seviyede. Acil önlem alınması gerekiyor.',
                 'actions': [
-                    'Tüm havalandırma sistemlerini maksimuma çıkarın',
-                    'Kişi sayısını azaltın',
-                    'CO2 seviyesini sürekli izleyin',
-                    'Uzman desteği alın'
+                    'Tüm endüstriyel havalandırma sistemlerini maksimuma çıkarın',
+                    'Üretim süreçlerini geçici olarak durdurun',
+                    'CO2 ve diğer sensörleri sürekli izleyin',
+                    'Güvenlik ekiplerini çağırın ve protokolleri uygulayın',
+                    'Çalışanları güvenli alanlara yönlendirin'
                 ]
             })
         
         # Sıcaklık önerileri
         if inputs['temperature'] < 18:
-            recommendations.extend(self._get_parameter_recommendations('temperature', 'low'))
+            temp_recs = self._get_parameter_recommendations('temperature', 'low')
+            if temp_recs:
+                recommendations.extend(temp_recs)
         elif inputs['temperature'] > 26:
-            recommendations.extend(self._get_parameter_recommendations('temperature', 'high'))
+            temp_recs = self._get_parameter_recommendations('temperature', 'high')
+            if temp_recs:
+                recommendations.extend(temp_recs)
         
         # Nem önerileri
         if inputs['humidity'] < 30:
-            recommendations.extend(self._get_parameter_recommendations('humidity', 'low'))
+            humidity_recs = self._get_parameter_recommendations('humidity', 'low')
+            if humidity_recs:
+                recommendations.extend(humidity_recs)
         elif inputs['humidity'] > 60:
-            recommendations.extend(self._get_parameter_recommendations('humidity', 'high'))
+            humidity_recs = self._get_parameter_recommendations('humidity', 'high')
+            if humidity_recs:
+                recommendations.extend(humidity_recs)
         
         # CO2 önerileri
         if inputs['co2'] > 1500:
-            recommendations.extend(self._get_parameter_recommendations('co2', 'very_high'))
+            co2_recs = self._get_parameter_recommendations('co2', 'very_high')
+            if co2_recs:
+                recommendations.extend(co2_recs)
         elif inputs['co2'] > 1000:
-            recommendations.extend(self._get_parameter_recommendations('co2', 'high'))
+            co2_recs = self._get_parameter_recommendations('co2', 'high')
+            if co2_recs:
+                recommendations.extend(co2_recs)
         
         # Kişi başına alan önerileri
         area_per_person = self.data_processor.calculate_area_per_person(inputs['area'], inputs['occupancy'])
         if area_per_person < 15:
-            recommendations.extend(self._get_parameter_recommendations('area_per_person', 'low'))
+            area_recs = self._get_parameter_recommendations('area_per_person', 'low')
+            if area_recs:
+                recommendations.extend(area_recs)
         
         # Önerileri öncelik sırasına göre sırala
         priority_order = {'emergency': 0, 'critical': 1, 'high': 2, 'medium': 3, 'low': 4}
@@ -196,11 +219,21 @@ class AirQualityAI:
         if parameter in self.recommendations_db:
             for rec in self.recommendations_db[parameter]:
                 if rec['condition'] == condition:
+                    # Parametre adlarını Türkçe'ye çevir
+                    param_names = {
+                        'temperature': 'Sıcaklık',
+                        'humidity': 'Nem',
+                        'co2': 'CO2',
+                        'area_per_person': 'Kişi Başına Alan'
+                    }
+                    
+                    param_name = param_names.get(parameter, parameter.title())
+                    
                     recommendations.append({
                         'type': parameter,
                         'priority': rec['priority'],
-                        'title': f'{parameter.title()} İyileştirme',
-                        'description': f'{parameter.title()} seviyesi optimal değerlerin dışında.',
+                        'title': f'Fabrika {param_name} İyileştirme',
+                        'description': f'Fabrika {param_name.lower()} seviyesi optimal değerlerin dışında. Endüstriyel önlemler alınması gerekiyor.',
                         'actions': rec['recommendations']
                     })
         
